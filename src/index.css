@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------- */
+/* CamCO ministry design tokens                                           */
+/* Palette carried over from the approved BRD design concept so the React */
+/* build stays visually consistent with what stakeholders already saw.    */
+/* ---------------------------------------------------------------------- */
+@theme {
+  --font-display: "CamcoDisplay", "Noto Sans Khmer", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "CamcoBody", "Noto Sans Khmer", ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #f6f3ec;
+  --color-surface: #ffffff;
+  --color-surface-2: #fbf8f1;
+  --color-ink: #16202b;
+  --color-ink-soft: #51606f;
+  --color-ink-faint: #83909e;
+
+  --color-navy-deep: #0b2545;
+  --color-navy-deep-ink: #f3f6fa;
+  --color-navy-deep-ink-soft: #aebcd0;
+  --color-navy: #123b6b;
+  --color-navy-hover: #0c2c51;
+  --color-navy-50: #eef3f9;
+
+  --color-gold: #a9772c;
+  --color-gold-bright: #c99a46;
+  --color-gold-soft: #efe0be;
+
+  --color-success: #2c7a4b;
+  --color-success-soft: #e4f3e9;
+  --color-warn: #a15c07;
+  --color-warn-soft: #fbeed9;
+  --color-danger: #a3372f;
+  --color-danger-soft: #fbe6e4;
+
+  --color-border: rgba(11, 37, 69, 0.16);
+  --color-border-soft: rgba(11, 37, 69, 0.09);
+
+  --shadow-card: 0 24px 60px -28px rgba(11, 37, 69, 0.45);
+
+  /* Mobile-first breakpoints matching the spec's device classes */
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1440px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* base text-scale step, adjusted by the A/A+ control (1 / 1.125 / 1.25) */
+    font-size: calc(17px * var(--text-scale, 1));
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-navy-deep);
+  }
+}
+
+@layer utilities {
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 100;
+    background: var(--color-navy-deep);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 0 0 8px 0;
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+
+  .lang-km {
+    font-family: "Noto Sans Khmer", var(--font-body);
+    line-height: 1.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
