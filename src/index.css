@@ -33,6 +33,10 @@
   --color-warn-soft: #fbeed9;
   --color-danger: #a3372f;
   --color-danger-soft: #fbe6e4;
+  --color-plum: #6b4a9c;
+  --color-plum-soft: #efe7f7;
+  --color-teal: #0f6b63;
+  --color-teal-soft: #e0f2f0;
 
   --color-border: rgba(11, 37, 69, 0.16);
   --color-border-soft: rgba(11, 37, 69, 0.09);

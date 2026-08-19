@@ -2,9 +2,10 @@
 // EN copy follows the reviewed copy deck (spec Bab 7); KM is a working
 // translation and, per the spec, needs formal legal/comms sign-off before
 // production launch.
+import { buyerVerifyUrl, withSrc } from '../config/links'
 
 export const NAV_ITEMS = [
-  { to: '/verify', label: { en: 'Verify', km: 'ផ្ទៀងផ្ទាត់' } },
+  { href: buyerVerifyUrl(withSrc()), external: true, label: { en: 'Verify', km: 'ផ្ទៀងផ្ទាត់' } },
   { to: '/services', label: { en: 'Services', km: 'សេវាកម្ម' } },
   { to: '/how-it-works', label: { en: 'How It Works', km: 'របៀបប្រើប្រាស់' } },
   { to: '/for-exporters', label: { en: 'For Exporters', km: 'សម្រាប់អ្នកនាំចេញ' } },
@@ -152,7 +153,7 @@ export const FAQ = [
   {
     q: { en: 'How does a buyer verify my certificate?', km: 'តើអ្នកទិញផ្ទៀងផ្ទាត់វិញ្ញាបនបត្ររបស់ខ្ញុំដោយរបៀបណា?' },
     a: { en: 'They scan the printed QR code or enter the reference number at /verify — free, instant, no account needed.', km: 'ពួកគេស្កេនកូដ QR ឬបញ្ចូលលេខយោងនៅ /verify — ឥតគិតថ្លៃ ភ្លាមៗ មិនចាំបាច់មានគណនី។' },
-    link: { to: '/verify', label: { en: 'Try verification', km: 'សាកល្បងផ្ទៀងផ្ទាត់' } },
+    link: { href: buyerVerifyUrl(withSrc()), external: true, label: { en: 'Try verification', km: 'សាកល្បងផ្ទៀងផ្ទាត់' } },
   },
   {
     q: { en: 'What happens if my application is rejected or my certificate expires?', km: 'តើមានអ្វីកើតឡើងបើពាក្យស្នើសុំរបស់ខ្ញុំត្រូវបានបដិសេធ ឬវិញ្ញាបនបត្រផុតកំណត់?' },

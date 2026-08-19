@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Container from '../components/ui/Container'
 import { useLocale } from '../context/LocaleContext'
+import { buyerVerifyUrl, withSrc } from '../config/links'
 
 export default function NotFound() {
   const { t } = useLocale()
@@ -20,9 +21,9 @@ export default function NotFound() {
         <Link to="/" className="rounded-lg bg-navy px-5 py-2.5 text-[14.5px] font-semibold text-white hover:bg-navy-hover">
           {t({ en: 'Go to homepage', km: 'ទៅទំព័រដើម' })}
         </Link>
-        <Link to="/verify" className="rounded-lg border border-navy px-5 py-2.5 text-[14.5px] font-semibold text-navy">
+        <a href={buyerVerifyUrl(withSrc())} className="rounded-lg border border-navy px-5 py-2.5 text-[14.5px] font-semibold text-navy">
           {t({ en: 'Verify a certificate', km: 'ផ្ទៀងផ្ទាត់វិញ្ញាបនបត្រ' })}
-        </Link>
+        </a>
       </div>
     </Container>
   )

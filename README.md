@@ -31,6 +31,9 @@ npm run preview  # preview the production build locally
 
 ## Portals
 
-Three of the four portals are external redirects configured in
-`src/config/links.js`. The Buyer portal is served from this same app
-(`/login`, `/register-buyer`) — see the comment in that file for why.
+All four portals are external redirects configured in `src/config/links.js`
+— Exporter, Freight Forwarder and Admin sign-in, plus the Buyer Portal at
+`camcobuyerglobal.linkit360.com`, which also serves the live public
+`/verify` experience this site links out to (see `buyerVerifyUrl`). Local
+`/verify`, `/login`, `/register-buyer` routes exist only to forward old
+links there — see `src/pages/ExternalRedirect.jsx`.

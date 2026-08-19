@@ -30,11 +30,17 @@ export default function Header() {
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-6 md:flex" aria-label="Primary">
-          {NAV_ITEMS.map((item) => (
-            <NavLink key={item.to} to={item.to} className={navLinkClass}>
-              {t(item.label)}
-            </NavLink>
-          ))}
+          {NAV_ITEMS.map((item) =>
+            item.external ? (
+              <a key={item.href} href={item.href} className="text-[14.5px] font-medium text-ink-soft transition-colors hover:text-navy">
+                {t(item.label)}
+              </a>
+            ) : (
+              <NavLink key={item.to} to={item.to} className={navLinkClass}>
+                {t(item.label)}
+              </NavLink>
+            ),
+          )}
         </nav>
 
         <div className="hidden flex-none items-center gap-3 md:flex">
@@ -64,16 +70,27 @@ export default function Header() {
       {mobileOpen && (
         <div id="mobile-nav-panel" className="border-t border-border-soft bg-surface md:hidden">
           <Container className="flex flex-col gap-1 py-4">
-            {NAV_ITEMS.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-3 py-3 text-[15.5px] font-medium text-ink hover:bg-navy-50"
-              >
-                {t(item.label)}
-              </NavLink>
-            ))}
+            {NAV_ITEMS.map((item) =>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-3 py-3 text-[15.5px] font-medium text-ink hover:bg-navy-50"
+                >
+                  {t(item.label)}
+                </a>
+              ) : (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-3 py-3 text-[15.5px] font-medium text-ink hover:bg-navy-50"
+                >
+                  {t(item.label)}
+                </NavLink>
+              ),
+            )}
             <div className="mt-2 flex flex-col gap-2 border-t border-border-soft pt-3">
               <LoginPicker variant="mobile" />
               <a

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import { useLocale } from '../../context/LocaleContext'
 import { SECURITY_POINTS } from '../../data/content'
+import { buyerVerifyUrl, withSrc } from '../../config/links'
 
 const ICONS = [
   <path key="qr" d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3M14 20h7v-3" />,
@@ -35,9 +35,9 @@ export default function SecuritySection() {
             </div>
           ))}
         </div>
-        <Link to="/verify" className="w-fit text-[14.5px] font-semibold text-gold-bright hover:underline">
+        <a href={buyerVerifyUrl(withSrc())} className="w-fit text-[14.5px] font-semibold text-gold-bright hover:underline">
           {t({ en: 'How verification works →', km: 'ការផ្ទៀងផ្ទាត់ដំណើរការយ៉ាងណា →' })}
-        </Link>
+        </a>
       </Container>
     </section>
   )

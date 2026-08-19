@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Container from '../ui/Container'
 import { useLocale } from '../../context/LocaleContext'
 import { isValidRefFormat, REF_PATTERN } from '../../utils/verify'
-import { exporterRegisterUrl, withSrc } from '../../config/links'
+import { exporterRegisterUrl, buyerVerifyUrl, withSrc } from '../../config/links'
+import { IMAGES } from '../../data/images'
 
 export default function Hero() {
   const { t, ui } = useLocale()
-  const navigate = useNavigate()
   const [ref, setRef] = useState('')
   const [error, setError] = useState('')
 
@@ -27,11 +27,24 @@ export default function Hero() {
       return
     }
     setError('')
-    navigate(`/verify?ref=${encodeURIComponent(ref.trim().toUpperCase())}`)
+    window.location.assign(buyerVerifyUrl(withSrc({ ref: ref.trim().toUpperCase() })))
   }
 
   return (
     <section className="relative overflow-hidden bg-navy-deep">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${IMAGES.angkorWat})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 38%',
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-navy-deep/96 via-navy-deep/92 to-navy-deep/70"
+        aria-hidden="true"
+      />
       <div
         className="pointer-events-none absolute inset-0 opacity-25"
         style={{
@@ -105,9 +118,9 @@ export default function Hero() {
                 {error}
               </p>
             )}
-            <Link to="/verify#scan" className="mt-1 text-[13.5px] font-medium text-navy hover:underline">
+            <a href={buyerVerifyUrl(withSrc())} className="mt-1 text-[13.5px] font-medium text-navy hover:underline">
               {ui('scanQr')} →
-            </Link>
+            </a>
           </form>
         </div>
       </Container>

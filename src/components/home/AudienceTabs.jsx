@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import { useLocale } from '../../context/LocaleContext'
+import { IMAGES } from '../../data/images'
 
 const TABS = [
   {
     key: 'exporters',
     label: { en: 'Exporters', km: 'អ្នកនាំចេញ' },
     title: { en: 'Apply, track and download your e-CO', km: 'ដាក់ស្នើ តាមដាន និងទាញយក e-CO របស់អ្នក' },
+    image: IMAGES.port,
+    imageCaption: { en: 'Sihanoukville Autonomous Port', km: 'កំពង់ផែស្វយ័តព្រះសីហនុ' },
     benefits: [
       { en: 'AI reads your invoice — no manual retyping', km: 'AI អានវិក្កយបត្ររបស់អ្នក — មិនចាំបាច់វាយបញ្ចូលឡើងវិញ' },
       { en: 'Track approval status in real time', km: 'តាមដានស្ថានភាពអនុម័តតាមពេលវេលាជាក់ស្តែង' },
@@ -20,6 +23,8 @@ const TABS = [
     key: 'buyers',
     label: { en: 'Buyers & Importers', km: 'អ្នកទិញ និងអ្នកនាំចូល' },
     title: { en: 'Verify authenticity in seconds', km: 'ផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវក្នុងរយៈពេលប៉ុន្មានវិនាទី' },
+    image: IMAGES.angkorWat,
+    imageCaption: { en: 'Angkor Wat, Siem Reap', km: 'អង្គរវត្ត សៀមរាប' },
     benefits: [
       { en: 'Scan a QR code or type the reference number', km: 'ស្កេនកូដ QR ឬវាយបញ្ចូលលេខយោង' },
       { en: 'No account required to verify', km: 'មិនចាំបាច់មានគណនីដើម្បីផ្ទៀងផ្ទាត់' },
@@ -31,6 +36,8 @@ const TABS = [
     key: 'forwarders',
     label: { en: 'Freight Forwarders', km: 'ក្រុមហ៊ុនដឹកជញ្ជូន' },
     title: { en: 'Access shipment documents & integrate systems', km: 'ចូលប្រើឯកសារដឹកជញ្ជូន និងភ្ជាប់ប្រព័ន្ធ' },
+    image: IMAGES.port,
+    imageCaption: { en: 'Sihanoukville Autonomous Port', km: 'កំពង់ផែស្វយ័តព្រះសីហនុ' },
     benefits: [
       { en: 'Onboarded partners retrieve certificate copies instantly', km: 'ដៃគូដែលបានចុះឈ្មោះទាញយកច្បាប់ចម្លងភ្លាមៗ' },
       { en: 'API & webhook to sync into your ERP', km: 'API និង webhook សម្រាប់ធ្វើសមកាលកម្មទៅ ERP របស់អ្នក' },
@@ -87,8 +94,11 @@ export default function AudienceTabs() {
               {t(tab.cta.label)}
             </Link>
           </div>
-          <div className="grid aspect-[4/3] place-items-center rounded-xl border border-dashed border-border bg-navy-50 text-[13px] text-ink-faint">
-            {t({ en: 'Portal screenshot', km: 'រូបថតអេក្រង់វិបផតថល' })}
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+            <img src={tab.image} alt={t(tab.imageCaption)} className="h-full w-full object-cover" loading="lazy" />
+            <span className="absolute bottom-3 left-3 rounded-md bg-navy-deep/80 px-2.5 py-1 text-[11.5px] font-medium text-white backdrop-blur-sm">
+              {t(tab.imageCaption)}
+            </span>
           </div>
         </div>
       </Container>

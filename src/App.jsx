@@ -2,7 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
-import Verify from './pages/Verify'
+import ExternalRedirect from './pages/ExternalRedirect'
+import { buyerVerifyUrl, buyerHomeUrl, withSrc } from './config/links'
 import ServicesPage from './pages/ServicesPage'
 import HowItWorksPage from './pages/HowItWorksPage'
 import ForExportersPage from './pages/ForExportersPage'
@@ -19,8 +20,6 @@ import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
 import AccessibilityPage from './pages/AccessibilityPage'
 import SitemapPage from './pages/SitemapPage'
-import BuyerLoginPage from './pages/BuyerLoginPage'
-import BuyerRegisterPage from './pages/BuyerRegisterPage'
 import NotFound from './pages/NotFound'
 
 function ScrollManager() {
@@ -45,7 +44,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/verify" element={<Verify />} />
+          <Route path="/verify" element={<ExternalRedirect to={buyerVerifyUrl(withSrc())} />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/for-exporters" element={<ForExportersPage />} />
@@ -62,8 +61,8 @@ export default function App() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/accessibility" element={<AccessibilityPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
-          <Route path="/login" element={<BuyerLoginPage />} />
-          <Route path="/register-buyer" element={<BuyerRegisterPage />} />
+          <Route path="/login" element={<ExternalRedirect to={buyerHomeUrl(withSrc())} />} />
+          <Route path="/register-buyer" element={<ExternalRedirect to={buyerHomeUrl(withSrc())} />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

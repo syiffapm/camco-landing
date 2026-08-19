@@ -3,7 +3,7 @@ import Container from '../ui/Container'
 import Emblem from '../brand/Emblem'
 import { useLocale } from '../../context/LocaleContext'
 import { FOOTER_LINKS } from '../../data/content'
-import { exporterLoginUrl, forwarderLoginUrl, adminLoginUrl, withSrc } from '../../config/links'
+import { exporterLoginUrl, forwarderLoginUrl, adminLoginUrl, buyerHomeUrl, withSrc } from '../../config/links'
 
 function FooterCol({ title, links }) {
   const { t } = useLocale()
@@ -34,7 +34,7 @@ export default function Footer() {
 
   const portalLinks = [
     { href: exporterLoginUrl(withSrc()), label: { en: 'Exporter Portal sign in', km: 'ចូលគណនីវិបផតថលអ្នកនាំចេញ' } },
-    { to: '/login', label: { en: 'Buyer Portal sign in', km: 'ចូលគណនីវិបផតថលអ្នកទិញ' } },
+    { href: buyerHomeUrl(withSrc()), label: { en: 'Buyer Portal sign in', km: 'ចូលគណនីវិបផតថលអ្នកទិញ' } },
     { href: forwarderLoginUrl(withSrc()), label: { en: 'Freight Forwarder Portal sign in', km: 'ចូលគណនីវិបផតថលក្រុមហ៊ុនដឹកជញ្ជូន' } },
     { href: adminLoginUrl(withSrc()), label: { en: 'Official & Admin Portal', km: 'វិបផតថលមន្ត្រី និងអ្នកគ្រប់គ្រង' } },
   ]

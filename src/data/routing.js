@@ -1,7 +1,7 @@
 // Service -> CTA -> destination, per spec Bab 15.2 (routing contract between
 // content and engineering). Each service has exactly one role, one target
 // portal and one CTA.
-import { exporterNewUrl, exporterRetypeUrl, exporterRegisterUrl, forwarderLoginUrl, withSrc } from '../config/links'
+import { exporterNewUrl, exporterRetypeUrl, exporterRegisterUrl, forwarderLoginUrl, buyerVerifyUrl, buyerHomeUrl, withSrc } from '../config/links'
 
 export const SERVICE_ROUTES = {
   'SVC-01': {
@@ -33,18 +33,18 @@ export const SERVICE_ROUTES = {
   },
   'SVC-06': {
     cta: { en: 'Verify a certificate', km: 'ផ្ទៀងផ្ទាត់វិញ្ញាបនបត្រ' },
-    href: () => '/verify',
-    external: false,
+    href: () => buyerVerifyUrl(withSrc({ svc: 'SVC-06' })),
+    external: true,
   },
   'SVC-07': {
     cta: { en: 'Open certificate detail', km: 'បើកព័ត៌មានលម្អិតវិញ្ញាបនបត្រ' },
-    href: () => '/verify',
-    external: false,
+    href: () => buyerVerifyUrl(withSrc({ svc: 'SVC-07' })),
+    external: true,
   },
   'SVC-08': {
     cta: { en: 'Save this certificate', km: 'រក្សាទុកវិញ្ញាបនបត្រនេះ' },
-    href: () => '/login',
-    external: false,
+    href: () => buyerHomeUrl(withSrc({ svc: 'SVC-08' })),
+    external: true,
   },
   'SVC-09': {
     cta: { en: 'Request forwarder access', km: 'ស្នើសុំចូលប្រើសម្រាប់ក្រុមហ៊ុនដឹកជញ្ជូន' },
@@ -67,7 +67,5 @@ export const SERVICE_ROUTES = {
     external: false,
   },
 }
-
-export const HOME_FEATURED_SERVICES = ['SVC-01', 'SVC-06', 'SVC-05', 'SVC-09', 'SVC-10', 'SVC-02']
 
 export { forwarderLoginUrl }

@@ -1,4 +1,5 @@
 import AudiencePageTemplate from '../components/audience/AudiencePageTemplate'
+import { buyerVerifyUrl, withSrc } from '../config/links'
 
 const data = {
   key: 'buyers',
@@ -19,7 +20,7 @@ const data = {
     { title: { en: 'Keep a watchlist', km: 'រក្សាទុកបញ្ជីតាមដាន' }, text: { en: 'Optionally save certificates and get notified if status changes.', km: 'អាចរក្សាទុកវិញ្ញាបនបត្រ និងទទួលបានការជូនដំណឹងប្រសិនបើស្ថានភាពផ្លាស់ប្តូរ។' } },
   ],
   steps: [
-    { en: 'Scan the QR code on the certificate, or open /verify.', km: 'ស្កេនកូដ QR នៅលើវិញ្ញាបនបត្រ ឬបើក /verify។' },
+    { en: 'Scan the QR code on the certificate, or open the Buyer Portal verify page.', km: 'ស្កេនកូដ QR នៅលើវិញ្ញាបនបត្រ ឬបើកទំព័រផ្ទៀងផ្ទាត់នៅវិបផតថលអ្នកទិញ។' },
     { en: 'Read the result — valid, expired, revoked, or not found.', km: 'អានលទ្ធផល — ត្រឹមត្រូវ ផុតកំណត់ ដកហូត ឬរកមិនឃើញ។' },
     { en: 'Optionally save it to your Buyer Portal watchlist.', km: 'ស្រេចចិត្តរក្សាទុកទៅក្នុងបញ្ជីតាមដានវិបផតថលអ្នកទិញរបស់អ្នក។' },
   ],
@@ -31,8 +32,8 @@ const data = {
     title: { en: 'Have a certificate to check?', km: 'មានវិញ្ញាបនបត្រត្រូវពិនិត្យមែនទេ?' },
     text: { en: 'Verify it now — it only takes a moment.', km: 'ផ្ទៀងផ្ទាត់ឥឡូវនេះ — វាចំណាយពេលតែមួយភ្លែត។' },
     label: { en: 'Verify a Certificate', km: 'ផ្ទៀងផ្ទាត់វិញ្ញាបនបត្រ' },
-    href: '/verify',
-    external: false,
+    href: buyerVerifyUrl(withSrc({ from: 'for-buyers' })),
+    external: true,
   },
 }
 

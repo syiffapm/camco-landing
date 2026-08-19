@@ -1,6 +1,7 @@
 import Container from '../components/ui/Container'
 import PageHero from '../components/ui/PageHero'
 import { useLocale } from '../context/LocaleContext'
+import { IMAGES } from '../data/images'
 
 const PILLARS = [
   {
@@ -26,6 +27,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        image={IMAGES.royalPalace}
         eyebrow={{ en: 'About CamCO', km: 'អំពី CamCO' }}
         title={{ en: 'A national platform for digital Certificates of Origin', km: 'វេទិកាជាតិសម្រាប់វិញ្ញាបនបត្របញ្ជាក់ប្រភពដើមឌីជីថល' }}
         desc={{

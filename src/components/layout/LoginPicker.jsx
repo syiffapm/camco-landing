@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocale } from '../../context/LocaleContext'
-import { exporterLoginUrl, forwarderLoginUrl, adminLoginUrl, withSrc } from '../../config/links'
+import { exporterLoginUrl, forwarderLoginUrl, adminLoginUrl, buyerHomeUrl, withSrc } from '../../config/links'
 
 const ROLES = [
   {
@@ -15,8 +15,8 @@ const ROLES = [
     key: 'buyer',
     title: { en: 'Buyer / Importer', km: 'អ្នកទិញ/អ្នកនាំចូល' },
     desc: { en: 'Save and monitor certificates you receive', km: 'រក្សាទុក និងតាមដានវិញ្ញាបនបត្រដែលអ្នកទទួល' },
-    href: () => '/login',
-    external: false,
+    href: () => buyerHomeUrl(withSrc()),
+    external: true,
   },
   {
     key: 'forwarder',
